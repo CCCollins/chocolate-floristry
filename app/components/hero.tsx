@@ -1,10 +1,14 @@
 "use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-export default function Hero() {
+interface HeroProps {
+  onOpenModal: () => void;
+}
+
+export default function Hero({ onOpenModal }: HeroProps) {
   return (
     <section className="w-full py-12 bg-pink-50">
       <div className="container px-4 md:px-6">
@@ -16,15 +20,13 @@ export default function Hero() {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-rose-800">
               Курс по шоколадной флористике от практикующих кондитеров
             </h1>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+            <p className="max-w-[600px] text-muted-foreground text-base md:text-xl">
               Мы — кондитерская СофиКо — создаём цветы из шоколада, неповторимые десерты и вкуснейшие торты.
-              Запишитесь на наш курс и станье мастером по шоколадной флористике! 
+              Запишитесь на наш курс и станьте мастером по шоколадной флористике!
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button size="lg" className="bg-rose-600 hover:bg-rose-700" asChild>
-                <Link href="#pricing">
-                  Записаться
-                </Link>
+              <Button size="lg" className="bg-rose-600 hover:bg-rose-700" onClick={onOpenModal}>
+                Записаться
               </Button>
               <Button variant="outline" className="border-rose-300 text-rose-700 hover:bg-rose-50" size="lg" asChild>
                 <Link href="#curriculum">Содержание курса</Link>
@@ -41,7 +43,7 @@ export default function Hero() {
               layout="responsive"
             />
             <div className="flex items-center gap-4 min-h-12 text-md">
-              <p>Подпишитесь на нашу группу ВКонтакте, чтобы заказать вкуснейшие изделия и получить бесплатные рецепты!</p>
+              <p className="text-xs md:text-base">Подпишитесь на нашу группу ВКонтакте, чтобы заказать вкуснейшие изделия и получить бесплатные рецепты!</p>
               <Button size="sm" className="bg-rose-600 hover:bg-rose-700" asChild>
                 <Link href="https://vk.com/sofiko101002" target="_blank">Подписаться</Link>
               </Button>
@@ -50,6 +52,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,9 +1,12 @@
 "use client";
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
-export default function CTA() {
+interface CTAProps {
+  onOpenModal: () => void;
+}
+
+export default function CTA({ onOpenModal }: CTAProps) {
   return (
     <section className="w-full py-12">
       <div className="container px-4 md:px-6">
@@ -17,8 +20,8 @@ export default function CTA() {
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
-            <Button size="lg" className="bg-rose-600 hover:bg-rose-700" asChild>
-              <Link href="#pricing">Записаться сейчас</Link>
+            <Button size="lg" className="bg-rose-600 hover:bg-rose-700" onClick={onOpenModal}>
+              Записаться сейчас
             </Button>
             <Button variant="outline" className="border-rose-300 text-rose-700 hover:bg-rose-50" size="lg">
               Скачать прьевью курса
@@ -30,6 +33,5 @@ export default function CTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

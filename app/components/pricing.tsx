@@ -38,7 +38,11 @@ const pricingPlans = [
   },
 ];
 
-export default function Pricing() {
+interface PricingProps {
+  onOpenModal: () => void;
+}
+
+export default function Pricing({ onOpenModal }: PricingProps) {
   return (
     <section id="pricing" className="w-full py-16 bg-gray-50">
       <div className="container px-6">
@@ -92,6 +96,7 @@ export default function Pricing() {
                       : "border-rose-300 text-rose-700 hover:bg-rose-50"
                   }`}
                   size="lg"
+                  onClick={onOpenModal}
                 >
                   {plan.buttonText}
                 </Button>
